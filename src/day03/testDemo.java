@@ -45,7 +45,9 @@ public class testDemo {
 
         LocalDateTime time = LocalDateTime.of(2022, 5, 5, 11, 10, 56);
         System.out.println(time);
-
-
+    }
+    @Test
+    public void test2(){
+        System.out.println("git-test");
     }
 }
