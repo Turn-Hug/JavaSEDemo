@@ -49,5 +49,6 @@ public class testDemo {
     @Test
     public void test2(){
         System.out.println("git-test");
+        System.out.println("git-test");
     }
 }
