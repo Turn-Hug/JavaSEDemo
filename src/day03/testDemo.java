@@ -7,6 +7,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAccessor;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
@@ -56,5 +59,30 @@ public class testDemo {
         System.out.println("git-test5");
         System.out.println("git-push");
         System.out.println("git-pull");
+    }
+    @Test
+    public void test3(){
+        //方式一：DateTimeFormatter.ISO_LOCAL_DATE_TIME
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
+        LocalDateTime localDateTime = LocalDateTime.now();
+        String date = formatter.format(localDateTime);
+        System.out.println(date);
+        //解析
+        TemporalAccessor parse = formatter.parse("2022-05-07T10:36:35.209");
+        System.out.println(parse);
+
+        //方式二：ofLocalizedDateTime
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);
+        String date2 = formatter1.format(localDateTime);
+        System.out.println(date2);
+
+        DateTimeFormatter formatter2 = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+        String date3 = formatter2.format(localDateTime);
+        System.out.println(date3);
+
+        //方式三：
+        DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss E");
+        String date4 = formatter3.format(localDateTime);
+        System.out.println(date4);
     }
 }
